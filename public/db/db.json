@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "ahmed@123.com",
+      "password": "ahmed123"
+    },
+    {
+      "id": "2",
+      "email": "sara@123.com",
+      "password": "sara123"
+    },
+    {
+      "id": "3",
+      "email": "mohamed@123.com",
+      "password": "mohamed123"
+    },
+    {
+      "id": "b44f",
+      "username": "azapdev",
+      "email": "azapdev@123.com",
+      "password": "azapdev123",
+      "confirmpass": "azapdev123"
+    }
+  ]
+}
