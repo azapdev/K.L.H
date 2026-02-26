@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import z from "zod";
@@ -46,6 +47,9 @@ const Signup = () => {
     },
   });
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <>
       <section
@@ -81,6 +85,7 @@ const Signup = () => {
                 Name
               </label>
               <input
+                id="name"
                 type="text"
                 {...register("username")}
                 className="outline-3 text-white h-8 rounded-2xl px-2 w-full my-2"
@@ -95,6 +100,7 @@ const Signup = () => {
                 E-mail
               </label>
               <input
+                id="email"
                 type="text"
                 {...register("email")}
                 className="outline-3 text-white h-8 rounded-2xl px-2 w-full my-2"
@@ -111,6 +117,7 @@ const Signup = () => {
                 Password
               </label>
               <input
+                id="password"
                 type="text"
                 {...register("password")}
                 className="outline-3 text-white h-8 rounded-2xl px-2 w-full my-2"
@@ -127,6 +134,7 @@ const Signup = () => {
                 Confirm Password
               </label>
               <input
+                id="confirmPassword"
                 type="text"
                 {...register("confirmpass")}
                 className="outline-3 text-white h-8 rounded-2xl px-2 w-full my-2"

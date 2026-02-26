@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { routes } from "../../Routes/routes";
 import { Button } from "../../components/ui/button";
+import { useEffect } from "react";
 const About = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <>
       <div className="w-full md:h-[calc(100vh-89px)] h-screen flex items-center justify-center bg-slate-900 flex-col gap-8 overflow-hidden">

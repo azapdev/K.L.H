@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
@@ -49,6 +49,7 @@ const Login = () => {
     const user = users.find((u: UserData) => u.email == info.email);
     if (!user) {
       setError("email", { message: "UsernotFound" });
+      throw new Error("Uaer Not Found");
     }
     if (user.password !== info.password) {
       setError("password", { message: "Password is incorrect" });
@@ -78,7 +79,9 @@ const Login = () => {
     mutation.mutate(data);
   };
   //=============================================================
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
   return (
     <>
       <section

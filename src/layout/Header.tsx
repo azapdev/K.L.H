@@ -56,9 +56,6 @@ const Header = () => {
                 <NavLink
                   key={index}
                   to={path}
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
                   className={({ isActive }) =>
                     `mx-2 hover:text-dark-topaz text-center duration-150 transition-colors py-2 text-sm ${
                       isActive
@@ -97,7 +94,6 @@ const Header = () => {
                       }
                       onClick={() => {
                         setToggle(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
                     >
                       {label}
@@ -125,19 +121,12 @@ const Header = () => {
                 <Link
                   to={routes.SIGNUP}
                   className=" inline-block text-dark-topaz md:text-lg text-sm border-2  border-dark-topaz md:px-8 px-2 py-3 whitespace-nowrap rounded-2xl duration-150 transition-all hover:bg-dark-topaz hover:text-white hover:scale-105"
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
                 >
                   Book Appointment
                 </Link>
                 <Link
                   to={routes.LOGIN}
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="inline-block text-white md:text-lg text-sm font-bold bg-dark-topaz border-2 border-dark-topaz md:px-8 px-2 py-3 rounded-2xl duration-150 transition-al hover:scale-105
-"
+                  className="inline-block text-white md:text-lg text-sm font-bold bg-dark-topaz border-2 border-dark-topaz md:px-8 px-2 py-3 rounded-2xl duration-150 transition-al hover:scale-105"
                 >
                   Login
                 </Link>
