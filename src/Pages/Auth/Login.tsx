@@ -26,7 +26,7 @@ const Login = () => {
   if (!authContext) {
     throw new Error("AuthContext must be used within AuthProvider");
   }
-  const {  Login, Logout } = authContext;
+  const { Login, Logout } = authContext;
   // USEFORM
   const {
     register,
@@ -87,7 +87,7 @@ const Login = () => {
       >
         <div className="absolute w-full h-full bg-rich-black/40 top-0 left-0 "></div>
         <motion.div
-          className="w-sm bg-rich-black/80 h-96 rounded-2xl m-auto mx-4 px-8 grid items-center z-10"
+          className="max-w-sm bg-rich-black/80 h-96 rounded-2xl m-auto mx-4 px-8 grid items-center z-10"
           initial={{ x: 400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, type: "spring" }}

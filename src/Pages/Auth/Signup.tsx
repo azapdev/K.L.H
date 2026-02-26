@@ -66,7 +66,7 @@ const Signup = () => {
 
         {/*Form  */}
         <motion.div
-          className=" relative w-sm bg-rich-black/80 py-12 rounded-2xl m-auto mx-4 px-8 grid items-center z-10"
+          className=" relative max-w-sm bg-rich-black/80 py-12  rounded-2xl m-auto mx-4 px-8 grid items-center z-10"
           initial={{ x: -400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, type: "spring" }}
