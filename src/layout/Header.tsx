@@ -149,7 +149,7 @@ const Header = () => {
       {/* Blurpage */}
       <div
         className={`${
-          toggle ? "fixed inset-0 backdrop-blur-3xl z-10" : "hidden"
+          toggle ? "fixed inset-0 backdrop-blur-3xl z-20" : "hidden"
         }`}
         onClick={() => setToggle(false)}
       ></div>

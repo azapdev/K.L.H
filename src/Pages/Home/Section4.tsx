@@ -44,19 +44,23 @@ const Section4 = () => {
 
   return (
     <>
-      <section className="container mt-16 flex flex-col  m-auto justify-center gap-8 md:px-20 py-10 overflow-hidden">
+      <section
+        className="container relative bg-cover flex flex-col  m-auto justify-center gap-8 md:px-20 py-10 overflow-hidden"
+        style={{ backgroundImage: "url('/img/bg2.jpg')" }}
+      >
+        <div className="absolute w-full h-full bg-rich-black/40 right-0 top-0 z-0"></div>
         {/* TITEL */}
         <motion.div
           animate={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl ms-4 flex flex-col items-start gap-4"
+          className=" relative max-w-3xl ms-4 flex flex-col items-start gap-4 z-10"
         >
-          <h2 className="md:text-3xl text-2xl text-rich-black font-bold">
+          <h2 className="md:text-5xl text-2xl text-black font-bold">
             Latest News And Updates
           </h2>
-          <p className="text-sm text-rich-black font-light">
+          <p className="md:text-lg text-sm text-rich-black font-light">
             Follow the latest legal developments and activities of K.L.H, from
             articles, events, and news that reflect our vision and role in
             supporting justice and development.
@@ -109,7 +113,7 @@ const Section4 = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="cursor-pointer hover:bg-rich-black hover:text-white transition-colors duration-300"
+                      className="cursor-pointer hover:bg-rich-black border-2 bg-gray-200 hover:text-white transition-colors duration-300"
                       onClick={() => navigate("/about")}
                     >
                       {label}
@@ -138,11 +142,11 @@ const Section4 = () => {
         </motion.div>
 
         {/* BUTTON */}
-        <div className="flex justify-center">
+        <div className="flex justify-center z-10  ">
           <Link to={routes.ABOUT}>
             <Button
               variant="outline"
-              className="mt-4 font-bold text-lg px-6 py-5 bg-shiny-red text-white hover:bg-white hover:text-shiny-red hover:border-shiny-red transition-colors duration-300 cursor-pointer"
+              className="mt-4 font-bold text-lg px-6 py-5 bg-shiny-red text-white hover:bg-white hover:text-shiny-red border-shiny-red transition-colors duration-300 cursor-pointer"
             >
               Learn More
             </Button>
