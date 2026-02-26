@@ -56,10 +56,10 @@ const Signup = () => {
 
         {/* Titel */}
         <div className="relative">
-          <h1 className="text-center md:text-4xl py-5 font-bold text-white capitalize">
+          <h1 className="text-center md:text-4xl text-2xl py-5 font-bold text-white capitalize">
             Hello, Welcome To Your Site
           </h1>
-          <p className="text-center md:text-2xl py-5 font-bold text-white capitalize">
+          <p className="text-center md:text-2xl font-bold text-white capitalize">
             Sign UP To have More News
           </p>
         </div>
