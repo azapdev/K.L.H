@@ -80,7 +80,7 @@ const Section1 = () => {
             </p>
 
             {/* section for nums */}
-            <div className="flex gap-4 items-center justify-between ">
+            <div className="flex gap-4 items-center justify-between mx-4 md:flex-row flex-col">
               {nums.map(({ start, end, label }, index) => {
                 return (
                   <React.Fragment key={index}>
@@ -104,7 +104,7 @@ const Section1 = () => {
                       </p>
                     </div>
                     {index !== nums.length - 1 && (
-                      <div className="border border-dashed border-dark-topaz h-10 mx-4"></div>
+                      <div className="md:border md:border-dashed md:border-dark-topaz md:h-10 md:mx-4"></div>
                     )}
                   </React.Fragment>
                 );
