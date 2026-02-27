@@ -8,7 +8,7 @@ const Section2 = () => {
     <>
       <section
         className=" bg-cover bg-center py-4 flex flex-col justify-around gap-16 overflow-hidden"
-        style={{ backgroundImage: "url('/img/bg2.jpg')" }}
+        style={{ backgroundImage: "url('/img/bg2.webp')" }}
       >
         {/* CARDS */}
         <div className="flex justify-center flex-col items-center md:flex-row gap-6 md:gap-15 mx-2">
@@ -56,7 +56,7 @@ const Section2 = () => {
           {/* img */}
           <div className="md:py-10 py-5 md:px-5 px-2 border-9 border-dark-topaz rounded-2xl mx-2">
             <img
-              src="img/hummer.jpg"
+              src="img/hummer.webp"
               alt=""
               className={`md:w-7xl  md:h-60 size-40 rounded-2xl ${lng == "en" ? "transform md:-translate-x-22.5 -translate-x-8.5 " : "transform md:translate-x-22.5 translate-x-8.5 "}`}
             />

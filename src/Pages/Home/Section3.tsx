@@ -43,7 +43,7 @@ const Section3 = () => {
     <>
       <section
         className=" bg-cover bg-center  py-10 bg-black/60 flex justify-center overflow-hidden"
-        style={{ backgroundImage: "url('/img/bg3.jpg')" }}
+        style={{ backgroundImage: "url('/img/bg3.webp')" }}
       >
         {/* PARENT */}
         <div>

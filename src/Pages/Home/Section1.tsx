@@ -32,7 +32,7 @@ const Section1 = () => {
     <>
       <section
         className="h-screen bg-cover bg-center flex justify-center items-center overflow-hidden relative"
-        style={{ backgroundImage: "url('/img/bg1.jpg')" }}
+        style={{ backgroundImage: "url('/img/bg1.webp')" }}
       >
         <div className="absolute w-full h-full bg-rich-black/40 top-0 left-0 z-0 "></div>
 

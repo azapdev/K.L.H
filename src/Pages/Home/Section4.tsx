@@ -49,7 +49,7 @@ const Section4 = () => {
     <>
       <section
         className="container relative bg-cover flex flex-col m-auto justify-center gap-8 md:px-20 py-10 overflow-hidden"
-        style={{ backgroundImage: "url('/img/bg2.jpg')" }}
+        style={{ backgroundImage: "url('/img/bg2.webp')" }}
       >
         <div className="absolute w-full h-full bg-rich-black/40 right-0 top-0 z-0"></div>
         {/* TITEL */}
@@ -98,7 +98,7 @@ const Section4 = () => {
                 >
                   <div>
                     <img
-                      src="img/judg.jpg"
+                      src="img/judg.webp"
                       alt="Event cover"
                       className="aspect-video w-full p-2 object-cover brightness-75"
                     />
