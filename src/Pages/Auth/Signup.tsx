@@ -59,7 +59,7 @@ const Signup = () => {
     <>
       <section
         className="bg-slate-900 h-screen relative flex justify-center items-center flex-col"
-        style={{ backgroundImage: "url('/img/bg1.jpg')" }}
+        style={{ backgroundImage: "url('/img/bg1.webp')" }}
       >
         <div className="absolute w-full h-full bg-rich-black/40 top-0 left-0 z-0 "></div>
 

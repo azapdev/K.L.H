@@ -96,7 +96,7 @@ const Login = () => {
     <>
       <section
         className="md:h-[calc(100vh-89px)] h-[calc(100vh-71.1px)] flex justify-center items-center relative"
-        style={{ backgroundImage: "url('/img/bg1.jpg')" }}
+        style={{ backgroundImage: "url('/img/bg1.webp')" }}
       >
         <div className="absolute w-full h-full bg-rich-black/40 top-0 left-0 "></div>
         <motion.div
