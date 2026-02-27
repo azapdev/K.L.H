@@ -1,26 +1,32 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { routes } from "../../Routes/routes";
 import { AuthContext } from "../../hooks/Context";
+import "../../i18n";
 import API from "../../inceptors";
-
-//=============================================================
-const schema = z.object({
-  email: z.string().email("invalid Email"),
-  password: z.string().min(6, "Short Password"),
-});
-type UserData = z.infer<typeof schema>;
-//=============================================================
 
 //=============================================================
 
 const Login = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const schema = useMemo(() => {
+    return z.object({
+      email: z.string().email(t("common:Login.fields.email.errorMessage2")),
+      password: z
+        .string()
+        .min(6, t("common:Login.fields.password.errorMessage2")),
+    });
+  }, [t]);
+  type UserData = z.infer<typeof schema>;
+  //=============================================================
 
   const authContext = useContext(AuthContext);
   if (!authContext) {
@@ -48,11 +54,15 @@ const Login = () => {
     const users = res.data;
     const user = users.find((u: UserData) => u.email == info.email);
     if (!user) {
-      setError("email", { message: "UsernotFound" });
+      setError("email", {
+        message: `${t("common:Login.fields.email.errorMessage")}`,
+      });
       throw new Error("Uaer Not Found");
     }
     if (user.password !== info.password) {
-      setError("password", { message: "Password is incorrect" });
+      setError("password", {
+        message: `${t("common:Login.fields.password.errorMessage")}`,
+      });
       throw new Error("Password is incorrect");
     } else {
       return user;
@@ -103,8 +113,7 @@ const Login = () => {
             {/* USERNAME */}
             <div>
               <label htmlFor="email" className="text-white font-bold text-xl">
-                {" "}
-                Email
+                {t("common:Login.fields.email.label")}
               </label>
               <input
                 id="email"
@@ -122,7 +131,7 @@ const Login = () => {
                 htmlFor="password"
                 className="text-white font-bold text-xl"
               >
-                Password
+                {t("common:Login.fields.password.label")}
               </label>
               <input
                 id="password"
@@ -142,16 +151,18 @@ const Login = () => {
                 type="submit"
                 className="bg-shiny-red text-white px-4 py-2 rounded-3xl cursor-pointer w-50 mx-auto my-4"
               >
-                Login
+                {t("common:Login.actions.submitButton")}
               </button>
             </div>
             <div className="flex justify-center items-center gap-1">
-              <span className="text-white">You dont Have Account?</span>
+              <span className="text-white">
+                {t("common:Login.actions.footerText")}
+              </span>
               <Link
                 to={routes.SIGNUP}
                 className="text-shiny-red hover:underline cursor-pointer"
               >
-                Singup
+                {t("common:Login.actions.linkText")}
               </Link>
             </div>
           </form>

@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import "../../i18n";
 const Section2 = () => {
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
   return (
     <>
       <section
-        className="min-h-screen bg-cover bg-center py-5 flex flex-col justify-around gap-15 overflow-hidden"
+        className=" bg-cover bg-center py-4 flex flex-col justify-around gap-16 overflow-hidden"
         style={{ backgroundImage: "url('/img/bg2.jpg')" }}
       >
         {/* CARDS */}
@@ -20,12 +24,10 @@ const Section2 = () => {
               <i className="fa-solid fa-scale-balanced"></i>
             </span>
             <p className="text-white font-bold md:text-lg whitespace-nowrap">
-              request A consultation
+              {t("common:features.request_consultation")}
             </p>
             <span className="text-white text-center text-sm">
-              Use the consultation request service to get quick and detailed
-              advice from our legal experts. Let us give you the guidance you
-              need to understand your rights clearly.
+              {t("common:features.request_desc")}
             </span>
           </motion.div>
 
@@ -41,12 +43,10 @@ const Section2 = () => {
               <i className="fa-solid fa-gavel"></i>
             </span>
             <p className="text-white font-bold md:text-2lg whitespace-nowrap">
-              book an appointment
+              {t("common:features.book_appointment_card")}
             </p>
             <span className="text-white text-center text-sm">
-              Use the consultation request service to get quick and detailed
-              advice from our legal experts. Let us give you the guidance you
-              need to understand your rights clearly.
+              {t("common:features.book_desc")}
             </span>
           </motion.div>
         </div>
@@ -58,25 +58,16 @@ const Section2 = () => {
             <img
               src="img/hummer.jpg"
               alt=""
-              className="md:w-7xl  md:h-60 size-40  transform md:-translate-x-22.5 -translate-x-8.5 rounded-2xl"
+              className={`md:w-7xl  md:h-60 size-40 rounded-2xl ${lng == "en" ? "transform md:-translate-x-22.5 -translate-x-8.5 " : "transform md:translate-x-22.5 translate-x-8.5 "}`}
             />
           </div>
 
           {/* DESCREPTION */}
           <div className="mx-2">
             <p className="font-extrabold text-rich-black md:text-2xl text-lg my-4 text-center">
-              Dedicated To Your Legal Success
+              {t("common:about_section.title")}
             </p>
-            <span>
-              A leading professional entity combining legal, administrative,
-              financial, and academic expertise, distinguished by a clear vision
-              to create a sophisticated legal environment based on knowledge and
-              a commitment to the needs of society, making it a strategic
-              partner in achieving justice and sustainable development. Our team
-              relies on meticulous analysis and understanding of the needs of
-              individuals and institutions, with a focus on proactive
-              communication to take preventative measures that protec
-            </span>
+            <span>{t("common:about_section.description")}</span>
           </div>
         </div>
       </section>

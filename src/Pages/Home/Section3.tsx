@@ -1,46 +1,42 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/button";
+import "../../i18n";
 import { routes } from "../../Routes/routes";
 import type { Service } from "../../types";
-
 const Section3 = () => {
+  const { t } = useTranslation();
   const cards: Service[] = [
     {
       icon: "fa-solid fa-scale-balanced",
-      title: "Arbitration And Mediation",
-      content:
-        "Dispute resolution through legal and Sharia arbitration and mediation, whether in commercial, real estate or financial...",
+      title: t("common:services.list.arbitration"),
+      content: t("common:services.list.subarbitration"),
     },
     {
       icon: "fa-solid fa-scale-balanced",
-      title: "Legal Consultations",
-      content:
-        "Providing specialized legal advice to individuals and companies in various branches of law (civil, commercial, labor...",
+      title: t("common:services.list.consultations"),
+      content: t("common:services.list.subconsultations"),
     },
     {
       icon: "fa-solid fa-scale-balanced",
-      title: "Preparing Legal Documents",
-      content:
-        "Company formation services, including choosing the appropriate legal structure, drafting contracts and internal regulation...",
+      title: t("common:services.list.documents"),
+      content: t("common:services.list.subdocuments"),
     },
     {
       icon: "fa-solid fa-scale-balanced",
-      title: "Administrative Systems",
-      content:
-        "Developing and implementing administrative and financial systems, internal work manuals, and procedural...",
+      title: t("common:services.list.admin_systems"),
+      content: t("common:services.list.subadmin_systems"),
     },
     {
       icon: "fa-solid fa-scale-balanced",
-      title: "Defense And Litigationn",
-      content:
-        "Legal representation and advocacy before all types of courts in civil, criminal, commercial, family, and other cases.",
+      title: t("common:services.list.litigation"),
+      content: t("common:services.list.sublitigation"),
     },
     {
       icon: "fa-solid fa-scale-balanced",
-      title: "Real Estate Services",
-      content:
-        "Providing comprehensive legal support in property registration and updating, resolving real estate disputes, drafting...",
+      title: t("common:services.list.real_estate"),
+      content: t("common:services.list.subreal_estate"),
     },
   ];
   return (
@@ -54,13 +50,10 @@ const Section3 = () => {
           {/* TITEL */}
           <div className="flex justify-center flex-col items-center my-5">
             <h2 className="font-bold text-white text-3xl text-center ">
-              Services
+              {t("common:services.title")}
             </h2>
             <p className="text-white text-center max-w-4xl px-5 my-4 ">
-              We provide comprehensive legal solutions with professionalism and
-              expertise to ensure the protection of rights and the provision of
-              the necessary legal support for individuals, companies and
-              institutions according to the laws.
+              {t("common:services.subtitle")}
             </p>
           </div>
 
@@ -103,7 +96,7 @@ const Section3 = () => {
                 variant="outline"
                 className="mt-4 font-bold  px-6 py-5 border-shiny-red bg-shiny-red text-white hover:text-shiny-red hover:bg-transparent transition-colors duration-300 cursor-pointer"
               >
-                Get A Free Consultation
+                {t("common:services.cta")}
               </Button>
             </Link>
           </motion.div>

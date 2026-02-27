@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./hooks/AuthContext";
+import "./i18n";
 import "./index.css";
 import Index from "./layout/Index";
 import { Preloader } from "./Pages";

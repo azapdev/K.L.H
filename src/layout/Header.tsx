@@ -1,32 +1,26 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
 import { routes } from "../Routes/routes";
 import { AuthContext } from "../hooks/Context";
-{
-  /* <AnimatePresence>
-  {toggle && (
-    <motion.div
-      className="fixed inset-0 backdrop-blur-3xl z-50"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      onClick={() => setToogle(false)}
-    />
-  )}
-</AnimatePresence> */
-}
+import "../i18n";
 
 const Header = () => {
+  // =========================================================================
+  // TRansilation
+
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
+
   const NavLinkes = [
     {
       path: routes.HOME,
-      label: "HOME",
+      label: t("common:nav.home"),
     },
     {
       path: routes.ABOUT,
-      label: "ABOUT",
+      label: t("common:nav.about"),
     },
   ];
 
@@ -113,39 +107,48 @@ const Header = () => {
                   onClick={handleLogout}
                   className="inline-block cursor-pointer text-white md:text-lg text-sm font-bold bg-dark-topaz border-2 border-dark-topaz md:px-8 px-2 py-3 rounded-2xl duration-150 transition-al hover:scale-105"
                 >
-                  LogOut
+                  {t("common:nav.logout")}
                 </button>
               </div>
             ) : (
               <div className="flex gap-2">
                 <Link
                   to={routes.SIGNUP}
-                  className=" inline-block text-dark-topaz md:text-lg text-sm border-2  border-dark-topaz md:px-8 px-2 py-3 whitespace-nowrap rounded-2xl duration-150 transition-all hover:bg-dark-topaz hover:text-white hover:scale-105"
+                  className=" inline-block text-dark-topaz md:text-lg text-xs border-2  border-dark-topaz md:px-8 px-2 py-3 whitespace-nowrap rounded-2xl duration-150 transition-all hover:bg-dark-topaz hover:text-white hover:scale-105"
                 >
-                  Book Appointment
+                  {t("common:nav.book_appointment")}
                 </Link>
                 <Link
                   to={routes.LOGIN}
                   className="inline-block text-white md:text-lg text-sm font-bold bg-dark-topaz border-2 border-dark-topaz md:px-8 px-2 py-3 rounded-2xl duration-150 transition-al hover:scale-105"
                 >
-                  Login
+                  {t("common:nav.login")}
                 </Link>
               </div>
             )}
-            {/* toggel */}
-            <button
-              className={`md:hidden flex flex-col z-20 gap-1 transform transition-transform duration-300 cursor-pointer ${toggle ? "-translate-x-45" : " translate-0"}`}
-              onClick={() => {
-                setToggle((prev) => !prev);
-              }}
-            >
-              <span className="w-10 h-1 bg-dark-topaz rounded-2xl "></span>
-              <span className="w-10 h-1 bg-dark-topaz rounded-2xl "></span>
-              <span className="w-10 h-1 bg-dark-topaz rounded-2xl "></span>
-            </button>
+            <div className="flex gap-2 items-center">
+              <button
+                className="cursor-pointer hover:scale-105 duration-150"
+                onClick={() => i18n.changeLanguage(lng == "en" ? "ar" : "en")}
+              >
+                <i className="fa-solid fa-earth-americas text-white bg-dark-topaz py-2 px-2 rounded-xl md:text-3xl"></i>
+              </button>
+              {/* toggel */}
+              <button
+                className={`md:hidden flex flex-col z-20 gap-1 transform transition-transform duration-300 cursor-pointer ${toggle ? "-translate-x-45" : " translate-0"}`}
+                onClick={() => {
+                  setToggle((prev) => !prev);
+                }}
+              >
+                <span className="md:w-10 w-5 h-1 bg-dark-topaz rounded-2xl "></span>
+                <span className="md:w-10 w-5 h-1 bg-dark-topaz rounded-2xl "></span>
+                <span className="md:w-10 w-5 h-1 bg-dark-topaz rounded-2xl "></span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
+
       {/* Blurpage */}
       <div
         className={`${

@@ -3,29 +3,34 @@ import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import z from "zod";
+import "../../i18n";
 import API from "../../inceptors";
 import { routes } from "../../Routes/routes";
 
-// ==============================================================
-const schema = z
-  .object({
-    username: z.string().min(1, "Please Fill the Filled"),
-    email: z.email("invailed Email"),
-    password: z.string().min(6, "Weak Password"),
-    confirmpass: z.string().min(1, "Please confirm your password"),
-  })
-  .refine((data) => data.password === data.confirmpass, {
-    message: " Password Is not the same",
-    path: ["confirmpass"],
-  });
-
-type Userinfo = z.infer<typeof schema>;
-
-// ==============================================================
 const Signup = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  // ==============================================================
+  const schema = z
+    .object({
+      username: z.string().min(1, t("common:signup.form.errors.required")),
+      email: z.email(t("common:signup.form.errors.invalidEmail")),
+      password: z.string().min(6, t("common:signup.form.errors.weakPassword")),
+      confirmpass: z
+        .string()
+        .min(1, t("common:signup.form.errors.confirmPassword")),
+    })
+    .refine((data) => data.password === data.confirmpass, {
+      message: " Password Is not the same",
+      path: ["confirmpass"],
+    });
+
+  type Userinfo = z.infer<typeof schema>;
+
+  // ==============================================================
   // ==============================================================
   // HOOK FORM
   const {
@@ -61,10 +66,10 @@ const Signup = () => {
         {/* Titel */}
         <div className="relative">
           <h1 className="text-center md:text-4xl text-2xl py-5 font-bold text-white capitalize">
-            Hello, Welcome To Your Site
+            {t("common:signup.title")}
           </h1>
           <p className="text-center md:text-2xl font-bold text-white capitalize">
-            Sign UP To have More News
+            {t("common:signup.subtitle")}
           </p>
         </div>
 
@@ -82,7 +87,7 @@ const Signup = () => {
             {/* USerName */}
             <div>
               <label htmlFor="name" className="text-white text-bold text-lg">
-                Name
+                {t("common:signup.form.name")}
               </label>
               <input
                 id="name"
@@ -97,7 +102,7 @@ const Signup = () => {
             <div>
               <label htmlFor="email" className="text-white text-bold text-lg">
                 {" "}
-                E-mail
+                {t("common:signup.form.email")}
               </label>
               <input
                 id="email"
@@ -114,7 +119,7 @@ const Signup = () => {
                 htmlFor="password"
                 className="text-white text-bold text-lg"
               >
-                Password
+                {t("common:signup.form.password")}
               </label>
               <input
                 id="password"
@@ -131,7 +136,7 @@ const Signup = () => {
                 htmlFor="confirmPassword"
                 className="text-white text-bold text-lg"
               >
-                Confirm Password
+                {t("common:signup.form.confirmPassword")}
               </label>
               <input
                 id="confirmPassword"
@@ -150,16 +155,18 @@ const Signup = () => {
                 type="submit"
                 className="bg-shiny-red text-white px-4 py-2 rounded-3xl cursor-pointer w-50 mx-auto my-4"
               >
-                Singup
+                {t("common:signup.form.submit")}
               </button>
             </div>
             <div className="flex justify-center items-center gap-1">
-              <span className="text-white">You Have Account?</span>
+              <span className="text-white">
+                {t("common:signup.form.loginPrompt")}
+              </span>
               <Link
                 to={routes.LOGIN}
                 className="text-shiny-red hover:underline cursor-pointer"
               >
-                Login
+                {t("common:signup.form.loginLink")}
               </Link>
             </div>
           </form>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
@@ -9,43 +10,45 @@ import {
   CardHeader,
   CardTitle,
 } from "../../components/ui/card";
+import "../../i18n";
 import { routes } from "../../Routes/routes";
 import type { cards } from "../../types";
 
 const Section4 = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const cards: cards[] = [
     {
-      title: "Conferences and Seminars",
-      text: "We are committed to attending and participating in legal events to enhance knowledge and...",
+      title: t("common:news.card"),
+      text: t("common:news.subcard"),
       data: "2025-12-28",
-      label: "Read More",
+      label: t("common:news.read_more"),
     },
     {
-      title: "Conferences and Seminars",
-      text: "We are committed to attending and participating in legal events to enhance knowledge and...",
+      title: t("common:news.card"),
+      text: t("common:news.subcard"),
       data: "2025-12-28",
-      label: "Read More",
+      label: t("common:news.read_more"),
     },
     {
-      title: "Conferences and Seminars",
-      text: "We are committed to attending and participating in legal events to enhance knowledge and...",
+      title: t("common:news.card"),
+      text: t("common:news.subcard"),
       data: "2025-12-28",
-      label: "Read More",
+      label: t("common:news.read_more"),
     },
     {
-      title: "Conferences and Seminars",
-      text: "We are committed to attending and participating in legal events to enhance knowledge and...",
-      data: "2025-12-27",
-      label: "Read More",
+      title: t("common:news.card"),
+      text: t("common:news.subcard"),
+      data: "2025-12-28",
+      label: t("common:news.read_more"),
     },
   ];
 
   return (
     <>
       <section
-        className="container relative bg-cover flex flex-col  m-auto justify-center gap-8 md:px-20 py-10 overflow-hidden"
+        className="container relative bg-cover flex flex-col m-auto justify-center gap-8 md:px-20 py-10 overflow-hidden"
         style={{ backgroundImage: "url('/img/bg2.jpg')" }}
       >
         <div className="absolute w-full h-full bg-rich-black/40 right-0 top-0 z-0"></div>
@@ -58,12 +61,10 @@ const Section4 = () => {
           className=" relative max-w-3xl ms-4 flex flex-col items-start gap-4 z-10"
         >
           <h2 className="md:text-5xl text-2xl text-black font-bold">
-            Latest News And Updates
+            {t("common:news.title")}
           </h2>
           <p className="md:text-lg text-sm text-rich-black font-light">
-            Follow the latest legal developments and activities of K.L.H, from
-            articles, events, and news that reflect our vision and role in
-            supporting justice and development.
+            {t("common:news.subtitle")}
           </p>
         </motion.div>
 
@@ -148,7 +149,7 @@ const Section4 = () => {
               variant="outline"
               className="mt-4 font-bold text-lg px-6 py-5 bg-shiny-red text-white hover:bg-white hover:text-shiny-red border-shiny-red transition-colors duration-300 cursor-pointer"
             >
-              Learn More
+              {t("common:news.view_all")}
             </Button>
           </Link>
         </div>

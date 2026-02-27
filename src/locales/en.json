@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "book_appointment": "Book Appointment",
+    "login": "Login",
+    "logout": "LogOut"
+  },
+  "Sec1": {
+    "badge": "The Expert Makes The Difference",
+    "title": "The First Platform For Legal Consultations",
+    "cta_button": "About K.L.H",
+    "testimonial": "He Did Not Disappoint ... Who Consulted",
+    "stats": {
+      "successful_cases": "Successful Cases",
+      "active_lawyers": "Active Lawyers",
+      "happy_customers": "Happy Customers"
+    }
+  },
+  "features": {
+    "request_consultation": "Request A Consultation",
+    "request_desc": "Use the consultation request service to get quick and detailed advice from our legal experts. Let us give you the guidance you need to understand your rights clearly",
+    "book_appointment_card": "Book An Appointment",
+    "book_desc": "Use the consultation request service to get quick and detailed advice from our legal experts. Let us give you the guidance you need to understand your rights clearly"
+  },
+  "about_section": {
+    "title": "Dedicated To Your Legal Success",
+    "description": "A leading professional entity combining legal, administrative,financial, and academic expertise, distinguished by a clear visionto create a sophisticated legal environment based on knowledge anda commitment to the needs of society, making it a strategicpartner in achieving justice and sustainable development. Our teamrelies on meticulous analysis and understanding of the needs ofindividuals and institutions, with a focus on proactivecommunication to take preventative measures that protec"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": " We provide comprehensive legal solutions with professionalism andexpertise to ensure the protection of rights and the provision ofthe necessary legal support for individuals, companies andinstitutions according to the laws.",
+    "list": {
+      "arbitration": "Arbitration And Mediation",
+      "subarbitration": "Dispute resolution through legal and Sharia arbitration and mediation, whether in commercial, real estate or financial...",
+      "consultations": "Legal Consultations",
+      "subconsultations": "Providing specialized legal advice to individuals and companies in various branches of law (civil, commercial, labor...",
+      "documents": "Preparing Legal Documents",
+      "subdocuments": "Company formation services, including choosing the appropriate legal structure, drafting contracts and internal regulation...",
+      "admin_systems": "Administrative Systems",
+      "subadmin_systems": "Developing and implementing administrative and financial systems, internal work manuals, and procedural...",
+      "litigation": "Defense And Litigation",
+      "sublitigation": "Legal representation and advocacy before all types of courts in civil, criminal, commercial, family, and other cases.",
+      "real_estate": "Real Estate Services",
+      "subreal_estate": "Providing comprehensive legal support in property registration and updating, resolving real estate disputes, drafting..."
+    },
+    "cta": "Get A Free Consultation"
+  },
+  "news": {
+    "title": "Latest News And Updates",
+    "subtitle": " Follow the latest legal developments and activities of K.L.H, fromarticles, events, and news that reflect our vision and role insupporting justice and development.",
+    "card": "Conferences and Seminars",
+    "subcard": "We are committed to attending and participating in legal events to enhance knowledge and..",
+    "read_more": "Read More",
+    "view_all": "Learn More"
+  },
+  "signup": {
+    "title": "Hello, Welcome To Your Site",
+    "subtitle": "Sign UP To Have More News",
+    "form": {
+      "name": "Name",
+      "email": "E-mail",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Signup",
+      "loginPrompt": "You Have Account?",
+      "loginLink": "Login",
+      "errors": {
+        "required": "Please fill this field",
+        "invalidEmail": "Invalid email",
+        "weakPassword": "Weak password",
+        "confirmPassword": "Please confirm your password"
+      }
+    }
+  },
+  "Login": {
+    "title": "Login",
+    "fields": {
+      "email": {
+        "label": "Email",
+        "errorMessage": "User Not Found",
+        "errorMessage2": "invalid Email "
+      },
+      "password": {
+        "label": "Password",
+        "errorMessage": "Password is Uncorrect",
+        "errorMessage2": "Password is to Short"
+      }
+    },
+    "actions": {
+      "submitButton": "Login",
+      "footerText": "Don't have an account?",
+      "linkText": "Sign up"
+    }
+  }
+}

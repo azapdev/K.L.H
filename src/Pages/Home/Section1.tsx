@@ -1,28 +1,31 @@
 import { motion } from "framer-motion";
 import React from "react";
 import CountUp from "react-countup";
+import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
+import "../../i18n";
 import { routes } from "../../Routes/routes";
 import type { Nums } from "../../types";
 
 const Section1 = () => {
+  const { t } = useTranslation();
   const { ref, inView } = useInView({ triggerOnce: true });
   const nums: Nums[] = [
     {
       start: 0,
       end: 1270,
-      label: "successful case",
+      label: t("common:Sec1.stats.successful_cases"),
     },
     {
       start: 0,
       end: 1239,
-      label: "active lawyer",
+      label: t("common:Sec1.stats.active_lawyers"),
     },
     {
       start: 0,
       end: 2235,
-      label: "happy customer",
+      label: t("common:Sec1.stats.happy_customers"),
     },
   ];
   return (
@@ -43,7 +46,7 @@ const Section1 = () => {
             className="text-rich-black bg-dark-topaz capitalize px-4 md:px-8 py-2 rounded-3xl text-center text-md"
           >
             <i className="fa-solid fa-medal me-1"></i>
-            <span>the expertis makes the defference </span>
+            <span>{t("common:Sec1.badge")}</span>
           </motion.div>
 
           {/* 2rd section */}
@@ -55,7 +58,7 @@ const Section1 = () => {
           "
           >
             <span className="text-white capitalize mx-2 text-2xl md:text-5xl wrap-normal text-center leading-tight font-bold line-clamp-2">
-              the frist platform for leagel consultations
+              {t("common:Sec1.title")}
             </span>
           </motion.div>
 
@@ -72,11 +75,11 @@ const Section1 = () => {
                 to={routes.ABOUT}
                 className="bg-shiny-red text-white md:p-5 p-4 font-bold capitalize rounded-2xl cursor-pointer md:text-lg"
               >
-                about K.L.H(K.L.H)
+                {t("common:Sec1.cta_button")}
               </Link>
             </div>
             <p className="text-dark-topaz mx-2 text-center capitalize font-bold md:text-lg">
-              he did not disappoint ... who consulted
+              {t("common:Sec1.testimonial")}
             </p>
 
             {/* section for nums */}
