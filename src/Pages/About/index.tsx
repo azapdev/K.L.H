@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { routes } from "../../Routes/routes";
 import { Button } from "../../components/ui/button";
-import { useEffect } from "react";
+import "../../i18n";
 const About = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  const { t } = useTranslation();
   return (
     <>
       <div className="w-full md:h-[calc(100vh-89px)] h-screen flex items-center justify-center bg-slate-900 flex-col gap-8 overflow-hidden">
@@ -23,7 +26,7 @@ const About = () => {
         >
           <motion.img src="/img/logo.svg" alt="Logo" className="size-40" />
           <p className="text-white text-2xl text-center font-bold">
-            Wating....
+            {t("common:About.title")}
           </p>
         </motion.div>
         <motion.div
@@ -37,7 +40,7 @@ const About = () => {
               variant="outline"
               className="mt-4 font-bold text-lg px-6 py-5 border-shiny-red bg-shiny-red text-white hover:bg-transparent hover:text-shiny-red hover:border-shiny-red transition-colors duration-300 cursor-pointer"
             >
-              Back to Home
+              {t("common:About.button")}
             </Button>
           </Link>
         </motion.div>

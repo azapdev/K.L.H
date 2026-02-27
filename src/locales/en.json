@@ -92,5 +92,9 @@
       "footerText": "Don't have an account?",
       "linkText": "Sign up"
     }
+  },
+  "About": {
+    "title": "Loading...",
+    "button": "Back to Home"
   }
 }
