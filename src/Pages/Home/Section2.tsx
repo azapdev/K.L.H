@@ -3,7 +3,7 @@ const Section2 = () => {
   return (
     <>
       <section
-        className="min-h-screen bg-cover bg-center py-5 flex flex-col justify-between gap-15 overflow-hidden"
+        className="min-h-screen bg-cover bg-center py-5 flex flex-col justify-around gap-15 overflow-hidden"
         style={{ backgroundImage: "url('/img/bg2.jpg')" }}
       >
         {/* CARDS */}

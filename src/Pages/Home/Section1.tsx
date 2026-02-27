@@ -54,7 +54,7 @@ const Section1 = () => {
             className="flex justify-center items-center 
           "
           >
-            <span className="text-white capitalize text-3xl md:text-5xl wrap-normal text-center leading-tight font-bold">
+            <span className="text-white capitalize mx-2 text-2xl md:text-5xl wrap-normal text-center leading-tight font-bold line-clamp-2">
               the frist platform for leagel consultations
             </span>
           </motion.div>
@@ -75,7 +75,7 @@ const Section1 = () => {
                 about K.L.H(K.L.H)
               </Link>
             </div>
-            <p className="text-dark-topaz capitalize font-bold md:text-lg">
+            <p className="text-dark-topaz mx-2 text-center capitalize font-bold md:text-lg">
               he did not disappoint ... who consulted
             </p>
 
