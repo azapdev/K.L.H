@@ -52,7 +52,7 @@ const Section2 = () => {
         </div>
 
         {/* info */}
-        <div className="flex max-w-5xl flex-col md:flex-row items-center justify-center px-12 mx-auto gap-10 ">
+        <div className="flex max-w-5xl flex-col md:flex-row items-center justify-center px-4 mx-auto gap-10 ">
           {/* img */}
           <div className="md:py-10 py-5 md:px-5 px-2 border-9 border-dark-topaz rounded-2xl mx-2">
             <img
@@ -63,7 +63,7 @@ const Section2 = () => {
           </div>
 
           {/* DESCREPTION */}
-          <div className="mx-4">
+          <div className="mx-2">
             <p className="font-extrabold text-rich-black md:text-2xl text-lg my-4 text-center">
               Dedicated To Your Legal Success
             </p>
