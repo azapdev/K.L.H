@@ -31,19 +31,19 @@ const Section1 = () => {
   return (
     <>
       <section
-        className="h-screen bg-cover bg-center flex justify-center items-center overflow-hidden relative"
+        className="relative flex h-screen items-center justify-center overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: "url('/img/bg1.webp')" }}
       >
-        <div className="absolute w-full h-full bg-rich-black/40 top-0 left-0 z-0 "></div>
+        <div className="bg-rich-black/40 absolute top-0 left-0 z-0 h-full w-full"></div>
 
         {/* parent */}
-        <div className="flex items-center flex-col content-center gap-10 z-10">
+        <div className="z-10 flex flex-col content-center items-center gap-10">
           {/* 1rd section */}
           <motion.div
             initial={{ x: 400, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "tween", duration: 0.6 }}
-            className="text-rich-black bg-dark-topaz capitalize px-4 md:px-8 py-2 rounded-3xl text-center text-md"
+            className="text-rich-black bg-dark-topaz text-md rounded-3xl px-4 py-2 text-center capitalize md:px-8"
           >
             <i className="fa-solid fa-medal me-1"></i>
             <span>{t("common:Sec1.badge")}</span>
@@ -54,10 +54,9 @@ const Section1 = () => {
             animate={{ x: 0, opacity: 1 }}
             initial={{ x: -400, opacity: 0 }}
             transition={{ type: "tween", duration: 0.6 }}
-            className="flex justify-center items-center 
-          "
+            className="flex items-center justify-center"
           >
-            <span className="text-white capitalize mx-2 text-2xl md:text-5xl wrap-normal text-center leading-tight font-bold line-clamp-2">
+            <span className="mx-2 line-clamp-2 text-center text-2xl leading-tight font-bold wrap-normal text-white capitalize md:text-5xl">
               {t("common:Sec1.title")}
             </span>
           </motion.div>
@@ -67,47 +66,47 @@ const Section1 = () => {
             animate={{ x: 0 }}
             initial={{ x: 400 }}
             transition={{ type: "tween", duration: 0.6 }}
-            className="flex flex-col items-center gap-10 "
+            className="flex flex-col items-center gap-10"
           >
             {/* Button */}
             <div>
               <Link
                 to={routes.ABOUT}
-                className="bg-shiny-red text-white md:p-5 p-4 font-bold capitalize rounded-2xl cursor-pointer md:text-lg"
+                className="bg-shiny-red cursor-pointer rounded-2xl p-4 font-bold text-white capitalize md:p-5 md:text-lg"
               >
                 {t("common:Sec1.cta_button")}
               </Link>
             </div>
-            <p className="text-dark-topaz mx-2 text-center capitalize font-bold md:text-lg">
+            <p className="text-dark-topaz mx-2 text-center font-bold capitalize md:text-lg">
               {t("common:Sec1.testimonial")}
             </p>
 
             {/* section for nums */}
-            <div className="flex gap-4 items-center justify-between mx-4 md:flex-row flex-col">
+            <div className="mx-4 flex flex-col items-center justify-between gap-4 md:flex-row">
               {nums.map(({ start, end, label }, index) => {
                 return (
                   <React.Fragment key={index}>
-                    <div className="flex items-center flex-col">
+                    <div className="flex flex-col items-center">
                       <span
                         ref={ref}
-                        className="text-dark-topaz md:text-2xl text-lg font-bold"
+                        className="text-dark-topaz text-lg font-bold md:text-2xl"
                       >
                         {inView && (
                           <CountUp
                             start={start}
                             end={end}
                             duration={2}
-                            className="text-white me-1"
+                            className="me-1 text-white"
                           />
                         )}
                         +
                       </span>
-                      <p className="text-dark-topaz capitalize text-sm md:lg">
+                      <p className="text-dark-topaz md:lg text-sm capitalize">
                         {label}
                       </p>
                     </div>
                     {index !== nums.length - 1 && (
-                      <div className="md:border md:border-dashed md:border-dark-topaz md:h-10 md:mx-4"></div>
+                      <div className="md:border-dark-topaz md:mx-4 md:h-10 md:border md:border-dashed"></div>
                     )}
                   </React.Fragment>
                 );

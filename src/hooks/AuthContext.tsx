@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { AuthContext } from "./Context";
 
- export const AuthProvider = ({ children }: { children: ReactNode }) => {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
@@ -20,8 +20,8 @@ import { AuthContext } from "./Context";
   };
 
   const Logout = () => {
-    setToken(null);
     localStorage.removeItem("token");
+    setToken(null);
   };
   return (
     <AuthContext.Provider value={{ token, Login, Logout }}>

@@ -25,7 +25,7 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-rich-black"
+          className="bg-rich-black fixed inset-0 z-50 flex items-center justify-center"
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}

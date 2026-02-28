@@ -12,14 +12,17 @@ const useSignup = () => {
   const schema = useSignupSchema();
 
   //   REACT HOOK FORM
-  const form = useForm<SignupSchema>({ resolver: zodResolver(schema) });
+  const form = useForm<SignupSchema>({
+    mode: "onChange",
+    resolver: zodResolver(schema),
+  });
 
   //SendData
-
   const PostData = async (info: SignupSchema) => {
     const res = await API.post("/users", info);
     return res;
   };
+
   //   Mutation
   const mutation = useMutation({
     mutationFn: PostData,
@@ -28,19 +31,18 @@ const useSignup = () => {
       navigate(routes.LOGIN);
     },
     onError: (error) => {
-      console.log(error);
+      console.error(error);
     },
   });
 
   //   handelSubmit
-  const SendData = (data: SignupSchema) => {
+  const sendData = (data: SignupSchema) => {
     mutation.mutate(data);
   };
+
   return {
-    register: form.register,
-    errors: form.formState.errors,
-    SendData,
-    handleSubmit:form.handleSubmit
+    form,
+    sendData,
   };
 };
 

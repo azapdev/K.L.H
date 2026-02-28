@@ -12,7 +12,7 @@ const About = () => {
   const { t } = useTranslation();
   return (
     <>
-      <div className="w-full md:h-[calc(100vh-89px)] h-screen flex items-center justify-center bg-slate-900 flex-col gap-8 overflow-hidden">
+      <div className="flex h-screen w-full flex-col items-center justify-center gap-8 overflow-hidden bg-slate-900 md:h-[calc(100vh-89px)]">
         <motion.div
           initial={{ scale: 0.8, opacity: 0.2 }}
           animate={{ scale: 1.05, opacity: 1 }}
@@ -25,7 +25,7 @@ const About = () => {
           className="flex flex-col items-center gap-6"
         >
           <motion.img src="/img/logo.svg" alt="Logo" className="size-40" />
-          <p className="text-white text-2xl text-center font-bold">
+          <p className="text-center text-2xl font-bold text-white">
             {t("common:About.title")}
           </p>
         </motion.div>
@@ -38,7 +38,7 @@ const About = () => {
           <Link to={routes.HOME}>
             <Button
               variant="outline"
-              className="mt-4 font-bold text-lg px-6 py-5 border-shiny-red bg-shiny-red text-white hover:bg-transparent hover:text-shiny-red hover:border-shiny-red transition-colors duration-300 cursor-pointer"
+              className="border-shiny-red bg-shiny-red hover:text-shiny-red hover:border-shiny-red mt-4 cursor-pointer px-6 py-5 text-lg font-bold text-white transition-colors duration-300 hover:bg-transparent"
             >
               {t("common:About.button")}
             </Button>

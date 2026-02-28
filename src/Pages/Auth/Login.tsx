@@ -11,7 +11,14 @@ import "../../i18n";
 const Login = () => {
   const { t } = useTranslation();
 
-  const { register, errors, handleSubmit, sendData } = useLogin();
+  const {
+    sendData,
+    form: {
+      register,
+      handleSubmit,
+      formState: { errors },
+    },
+  } = useLogin();
   //=============================================================
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -19,12 +26,12 @@ const Login = () => {
   return (
     <>
       <section
-        className="md:h-[calc(100vh-89px)] h-[calc(100vh-71.1px)] flex justify-center items-center relative"
+        className="relative flex h-[calc(100vh-71.1px)] items-center justify-center md:h-[calc(100vh-89px)]"
         style={{ backgroundImage: "url('/img/bg1.webp')" }}
       >
-        <div className="absolute w-full h-full bg-rich-black/40 top-0 left-0 "></div>
+        <div className="bg-rich-black/40 absolute top-0 left-0 h-full w-full"></div>
         <motion.div
-          className="max-w-sm bg-rich-black/80 h-96 rounded-2xl m-auto mx-4 px-8 grid items-center z-10"
+          className="bg-rich-black/80 z-10 m-auto mx-4 grid h-96 max-w-sm items-center rounded-2xl px-8"
           initial={{ x: 400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, type: "spring" }}
@@ -32,20 +39,20 @@ const Login = () => {
           <form
             action=""
             onSubmit={handleSubmit(sendData)}
-            className="flex flex-col gap-4 "
+            className="flex flex-col gap-4"
           >
             {/* USERNAME */}
             <div>
-              <label htmlFor="email" className="text-white font-bold text-xl">
+              <label htmlFor="email" className="text-xl font-bold text-white">
                 {t("common:Login.fields.email.label")}
               </label>
               <input
                 id="email"
                 type="text"
                 {...register("email")}
-                className="outline-3 text-white h-8 rounded-2xl px-2 w-full my-2"
+                className="my-2 h-8 w-full rounded-2xl px-2 text-white outline-3"
               />
-              <span className="text-red-500 text-xs ">
+              <span className="text-xs text-red-500">
                 {errors.email?.message}
               </span>
             </div>
@@ -53,7 +60,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="password"
-                className="text-white font-bold text-xl"
+                className="text-xl font-bold text-white"
               >
                 {t("common:Login.fields.password.label")}
               </label>
@@ -61,30 +68,30 @@ const Login = () => {
                 id="password"
                 type="password"
                 {...register("password")}
-                className="outline-3 text-white h-8 rounded-2xl px-2 my-2 w-full"
+                className="my-2 h-8 w-full rounded-2xl px-2 text-white outline-3"
                 autoComplete="off"
               />
-              <span className="text-red-500 text-xs">
+              <span className="text-xs text-red-500">
                 {errors.password?.message}
               </span>
             </div>
 
             {/* Submit Button */}
-            <div className="flex items-center flex-col">
+            <div className="flex flex-col items-center">
               <button
                 type="submit"
-                className="bg-shiny-red text-white px-4 py-2 rounded-3xl cursor-pointer w-50 mx-auto my-4"
+                className="bg-shiny-red mx-auto my-4 w-50 cursor-pointer rounded-3xl px-4 py-2 text-white"
               >
                 {t("common:Login.actions.submitButton")}
               </button>
             </div>
-            <div className="flex justify-center items-center gap-1">
+            <div className="flex items-center justify-center gap-1">
               <span className="text-white">
                 {t("common:Login.actions.footerText")}
               </span>
               <Link
                 to={routes.SIGNUP}
-                className="text-shiny-red hover:underline cursor-pointer"
+                className="text-shiny-red cursor-pointer hover:underline"
               >
                 {t("common:Login.actions.linkText")}
               </Link>

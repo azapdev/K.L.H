@@ -7,26 +7,26 @@ const Section2 = () => {
   return (
     <>
       <section
-        className=" bg-cover bg-center py-4 flex flex-col justify-around gap-16 overflow-hidden"
+        className="flex flex-col justify-around gap-16 overflow-hidden bg-cover bg-center py-4"
         style={{ backgroundImage: "url('/img/bg2.webp')" }}
       >
         {/* CARDS */}
-        <div className="flex justify-center flex-col items-center md:flex-row gap-6 md:gap-15 mx-2">
+        <div className="mx-2 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-15">
           {/* card1 */}
           <motion.div
             animate={{ x: -200, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-rich-black flex flex-col justify-center items-center gap-3 max-w-sm capitalize p-8 border-b-12 border-dark-topaz"
+            className="bg-rich-black border-dark-topaz flex max-w-sm flex-col items-center justify-center gap-3 border-b-12 p-8 capitalize"
           >
             <span className="text-dark-topaz text-xl md:text-4xl">
               <i className="fa-solid fa-scale-balanced"></i>
             </span>
-            <p className="text-white font-bold md:text-lg whitespace-nowrap">
+            <p className="font-bold whitespace-nowrap text-white md:text-lg">
               {t("common:features.request_consultation")}
             </p>
-            <span className="text-white text-center text-sm">
+            <span className="text-center text-sm text-white">
               {t("common:features.request_desc")}
             </span>
           </motion.div>
@@ -37,34 +37,34 @@ const Section2 = () => {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-80px" }}
-            className="bg-rich-black flex flex-col justify-center items-center gap-3 max-w-sm capitalize  p-8 border-b-12 border-dark-topaz"
+            className="bg-rich-black border-dark-topaz flex max-w-sm flex-col items-center justify-center gap-3 border-b-12 p-8 capitalize"
           >
             <span className="text-dark-topaz text-4xl">
               <i className="fa-solid fa-gavel"></i>
             </span>
-            <p className="text-white font-bold md:text-2lg whitespace-nowrap">
+            <p className="md:text-2lg font-bold whitespace-nowrap text-white">
               {t("common:features.book_appointment_card")}
             </p>
-            <span className="text-white text-center text-sm">
+            <span className="text-center text-sm text-white">
               {t("common:features.book_desc")}
             </span>
           </motion.div>
         </div>
 
         {/* info */}
-        <div className="flex max-w-5xl flex-col md:flex-row items-center justify-center px-4 mx-auto gap-10 ">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-10 px-4 md:flex-row">
           {/* img */}
-          <div className="md:py-10 py-5 md:px-5 px-2 border-9 border-dark-topaz rounded-2xl mx-2">
+          <div className="border-dark-topaz mx-2 rounded-2xl border-9 px-2 py-5 md:px-5 md:py-10">
             <img
               src="img/hummer.webp"
               alt=""
-              className={`md:w-7xl  md:h-60 size-40 rounded-2xl ${lng == "en" ? "transform md:-translate-x-22.5 -translate-x-8.5 " : "transform md:translate-x-22.5 translate-x-8.5 "}`}
+              className={`size-40 rounded-2xl md:h-60 md:w-7xl ${lng == "en" ? "-translate-x-8.5 transform md:-translate-x-22.5" : "translate-x-8.5 transform md:translate-x-22.5"}`}
             />
           </div>
 
           {/* DESCREPTION */}
           <div className="mx-2">
-            <p className="font-extrabold text-rich-black md:text-2xl text-lg my-4 text-center">
+            <p className="text-rich-black my-4 text-center text-lg font-extrabold md:text-2xl">
               {t("common:about_section.title")}
             </p>
             <span>{t("common:about_section.description")}</span>

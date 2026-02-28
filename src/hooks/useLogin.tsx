@@ -64,9 +64,7 @@ const useLogin = () => {
   };
 
   return {
-    register: form.register,
-    errors: form.formState.errors,
-    handleSubmit: form.handleSubmit,
+    form,
     sendData,
   };
 };

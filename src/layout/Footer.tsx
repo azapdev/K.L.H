@@ -18,11 +18,11 @@ const Footer = () => {
 const Information = () => {
   return (
     <>
-      <div className="flex justify-center items-center flex-col gap-4 mx-4 py-4">
-        <p className="md:text-sm text-xs text-dark-topaz text-center">
+      <div className="mx-4 flex flex-col items-center justify-center gap-4 py-4">
+        <p className="text-dark-topaz text-center text-xs md:text-sm">
           Your Optimal Choice
         </p>
-        <h2 className="md:text-xl text-sm text-white text-center">
+        <h2 className="text-center text-sm text-white md:text-xl">
           Designed & developed by Ahmad Elazap.
         </h2>
         <Link
@@ -33,7 +33,7 @@ const Information = () => {
               behavior: "smooth",
             })
           }
-          className=" md:text-lg text-sm font-bold rounded-4xl px-4 py-2 bg-shiny-red text-white hover:bg-white hover:text-shiny-red border-shiny-red transition-colors duration-300 cursor-pointer"
+          className="bg-shiny-red hover:text-shiny-red border-shiny-red cursor-pointer rounded-4xl px-4 py-2 text-sm font-bold text-white transition-colors duration-300 hover:bg-white md:text-lg"
         >
           Follow
         </Link>
@@ -77,7 +77,7 @@ const Data = () => {
   ];
   return (
     <>
-      <div className="flex md:flex-row flex-col items-start mx-8  max-w-6xl justify-center gap-8 md:mx-auto py-4">
+      <div className="mx-8 flex max-w-6xl flex-col items-start justify-center gap-8 py-4 md:mx-auto md:flex-row">
         {/* 1rd */}
         <div className="max-w-sm">
           <p className="line-clamp-4 text-xs text-white">
@@ -90,11 +90,11 @@ const Data = () => {
 
         {/* 2rd */}
         <div className="flex flex-col gap-2 text-xs">
-          <p className="text-dark-topaz text-xs my-2">Quick Links</p>
+          <p className="text-dark-topaz my-2 text-xs">Quick Links</p>
           {quickLinks.map((item, index) => (
             <p
               key={index}
-              className="text-white hover:text-dark-topaz cursor-pointer"
+              className="hover:text-dark-topaz cursor-pointer text-white"
             >
               {item}
             </p>
@@ -103,11 +103,11 @@ const Data = () => {
 
         {/* 3rd */}
         <div className="flex flex-col gap-2 text-xs">
-          <p className="text-dark-topaz text-xs my-2">Services</p>
+          <p className="text-dark-topaz my-2 text-xs">Services</p>
           {services.map((item, index) => (
             <p
               key={index}
-              className="text-white hover:text-dark-topaz cursor-pointer"
+              className="hover:text-dark-topaz cursor-pointer text-white"
             >
               {item}
             </p>
@@ -115,11 +115,11 @@ const Data = () => {
         </div>
         {/* 4rd */}
         <div className="flex flex-col gap-2 text-xs">
-          <p className="text-dark-topaz text-xs my-2">ContactInfo</p>
+          <p className="text-dark-topaz my-2 text-xs">ContactInfo</p>
           {contactInfo.map((item, index) => (
             <p
               key={index}
-              className="text-white hover:text-dark-topaz cursor-pointer"
+              className="hover:text-dark-topaz cursor-pointer text-white"
             >
               {item}
             </p>
@@ -131,7 +131,7 @@ const Data = () => {
                 key={index}
                 href={item.href}
                 target="_blank"
-                className="text-dark-topaz bg-slate-800 px-3 py-1 rounded-2xl group hover:bg-black duration-150 "
+                className="text-dark-topaz group rounded-2xl bg-slate-800 px-3 py-1 duration-150 hover:bg-black"
               >
                 <i className={`${item.icon} group-hover:text-white`}></i>
               </a>
@@ -145,7 +145,7 @@ const Data = () => {
 const End = () => {
   return (
     <>
-      <p className="text-center text-white py-1 text-xs">
+      <p className="py-1 text-center text-xs text-white">
         © 2026 All rights reserved.
       </p>
     </>
