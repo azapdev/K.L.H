@@ -1,57 +1,15 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
-import z from "zod";
+import { Link } from "react-router-dom";
+import useSignup from "../../hooks/useSignup";
 import "../../i18n";
-import API from "../../inceptors";
 import { routes } from "../../Routes/routes";
 
 const Signup = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
-  // ==============================================================
-  const schema = z
-    .object({
-      username: z.string().min(1, t("common:signup.form.errors.required")),
-      email: z.email(t("common:signup.form.errors.invalidEmail")),
-      password: z.string().min(6, t("common:signup.form.errors.weakPassword")),
-      confirmpass: z
-        .string()
-        .min(1, t("common:signup.form.errors.confirmPassword")),
-    })
-    .refine((data) => data.password === data.confirmpass, {
-      message: " Password Is not the same",
-      path: ["confirmpass"],
-    });
 
-  type Userinfo = z.infer<typeof schema>;
-
-  // ==============================================================
-  // ==============================================================
-  // HOOK FORM
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Userinfo>({ resolver: zodResolver(schema) });
-
-  //==============================================================
-  // SEND DATA
-  const mutation = useMutation({
-    mutationFn: (data: Userinfo) => API.post("/users", data),
-    onSuccess: (data) => {
-      console.log("Data WAs Sent", data);
-      navigate(routes.LOGIN);
-    },
-    onError: (error) => {
-      console.log(error.message);
-    },
-  });
-
+  const { register, SendData, errors, handleSubmit } = useSignup();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -80,10 +38,7 @@ const Signup = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, type: "spring" }}
         >
-          <form
-            action=""
-            onSubmit={handleSubmit((info) => mutation.mutate(info))}
-          >
+          <form action="" onSubmit={handleSubmit(SendData)}>
             {/* USerName */}
             <div>
               <label htmlFor="name" className="text-white text-bold text-lg">

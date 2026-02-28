@@ -1,93 +1,17 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { useContext, useEffect, useMemo } from "react";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
-import { z } from "zod";
+import { Link } from "react-router-dom";
 import { routes } from "../../Routes/routes";
-import { AuthContext } from "../../hooks/Context";
+import useLogin from "../../hooks/useLogin";
 import "../../i18n";
-import API from "../../inceptors";
 
 //=============================================================
 
 const Login = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const schema = useMemo(() => {
-    return z.object({
-      email: z.string().email(t("common:Login.fields.email.errorMessage2")),
-      password: z
-        .string()
-        .min(6, t("common:Login.fields.password.errorMessage2")),
-    });
-  }, [t]);
-  type UserData = z.infer<typeof schema>;
-  //=============================================================
-
-  const authContext = useContext(AuthContext);
-  if (!authContext) {
-    throw new Error("AuthContext must be used within AuthProvider");
-  }
-  const { Login, Logout } = authContext;
-  // USEFORM
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setError,
-  } = useForm<UserData>({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
-  //=============================================================
-
-  // USE MUTATION
-  const CheakDAta = async (info: UserData) => {
-    const res = await API.get("/users");
-    const users = res.data;
-    const user = users.find((u: UserData) => u.email == info.email);
-    if (!user) {
-      setError("email", {
-        message: `${t("common:Login.fields.email.errorMessage")}`,
-      });
-      throw new Error("Uaer Not Found");
-    }
-    if (user.password !== info.password) {
-      setError("password", {
-        message: `${t("common:Login.fields.password.errorMessage")}`,
-      });
-      throw new Error("Password is incorrect");
-    } else {
-      return user;
-    }
-  };
-  //=============================================================
-
-  // MUTATION
-  const mutation = useMutation({
-    mutationFn: CheakDAta,
-    onSuccess: (data) => {
-      console.log("You WEre login");
-      Login(data.password);
-      navigate("/");
-    },
-    onError: (error) => {
-      console.log(error.message);
-      Logout();
-    },
-  });
-  //=============================================================
-
-  const sendData: SubmitHandler<UserData> = (data) => {
-    mutation.mutate(data);
-  };
+  const { register, errors, handleSubmit, sendData } = useLogin();
   //=============================================================
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });

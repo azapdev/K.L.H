@@ -21,6 +21,13 @@
       "email": "azapdev@123.com",
       "password": "azapdev123",
       "confirmpass": "azapdev123"
+    },
+    {
+      "id": "3d71",
+      "username": "Esraa",
+      "email": "esraa123@gm.com",
+      "password": "esraa123",
+      "confirmpass": "esraa123"
     }
   ]
 }
