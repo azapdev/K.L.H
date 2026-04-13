@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import Input from "../../components/shared/input";
 import useSignup from "../../hooks/useSignup";
 import "../../i18n";
 import { routes } from "../../Routes/routes";
@@ -46,70 +47,41 @@ const Signup = () => {
           transition={{ duration: 0.6, type: "spring" }}
         >
           <form action="" onSubmit={handleSubmit(sendData)}>
-            {/* USerName */}
-            <div>
-              <label htmlFor="name" className="text-bold text-lg text-white">
-                {t("common:signup.form.name")}
-              </label>
-              <input
-                id="name"
-                type="text"
-                {...register("username")}
-                className="my-2 h-8 w-full rounded-2xl px-2 text-white outline-3"
-              />
-              <span className="text-red-500">{errors.username?.message}</span>
-            </div>
+            {/* UserName */}
+
+            <Input
+              label={t("common:signup.form.name")}
+              name="username"
+              errors={errors}
+              register={register}
+            />
 
             {/* EMAIL */}
-            <div>
-              <label htmlFor="email" className="text-bold text-lg text-white">
-                {" "}
-                {t("common:signup.form.email")}
-              </label>
-              <input
-                id="email"
-                type="text"
-                {...register("email")}
-                className="my-2 h-8 w-full rounded-2xl px-2 text-white outline-3"
-              />
-              <span className="text-red-500">{errors.email?.message}</span>
-            </div>
+            <Input
+              label={t("common:signup.form.email")}
+              name="email"
+              errors={errors}
+              register={register}
+            />
 
             {/* PASSWORD */}
-            <div>
-              <label
-                htmlFor="password"
-                className="text-bold text-lg text-white"
-              >
-                {t("common:signup.form.password")}
-              </label>
-              <input
-                id="password"
-                type="text"
-                {...register("password")}
-                className="my-2 h-8 w-full rounded-2xl px-2 text-white outline-3"
-              />
-              <span className="text-red-500">{errors.password?.message}</span>
-            </div>
+
+            <Input
+              label={t("common:signup.form.password")}
+              name="password"
+              errors={errors}
+              register={register}
+              type="password"
+            />
 
             {/* CONFRIMPASSWORD */}
-            <div>
-              <label
-                htmlFor="confirmPassword"
-                className="text-bold text-lg text-white"
-              >
-                {t("common:signup.form.confirmPassword")}
-              </label>
-              <input
-                id="confirmPassword"
-                type="text"
-                {...register("confirmpass")}
-                className="my-2 h-8 w-full rounded-2xl px-2 text-white outline-3"
-              />
-              <span className="text-red-500">
-                {errors.confirmpass?.message}
-              </span>
-            </div>
+            <Input
+              label={t("common:signup.form.confirmPassword")}
+              name="password"
+              errors={errors}
+              register={register}
+              type="password"
+            />
 
             {/* Submit Button */}
             <div className="flex flex-col items-center">

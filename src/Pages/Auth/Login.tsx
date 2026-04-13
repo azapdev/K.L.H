@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { routes } from "../../Routes/routes";
+import Input from "../../components/shared/input";
 import useLogin from "../../hooks/useLogin";
 import "../../i18n";
 
@@ -41,41 +42,20 @@ const Login = () => {
             onSubmit={handleSubmit(sendData)}
             className="flex flex-col gap-4"
           >
-            {/* USERNAME */}
-            <div>
-              <label htmlFor="email" className="text-xl font-bold text-white">
-                {t("common:Login.fields.email.label")}
-              </label>
-              <input
-                id="email"
-                type="text"
-                {...register("email")}
-                className="my-2 h-8 w-full rounded-2xl px-2 text-white outline-3"
-              />
-              <span className="text-xs text-red-500">
-                {errors.email?.message}
-              </span>
-            </div>
+            {/* USERNAME  */}
+            <Input
+              name="email"
+              label={t("common:Login.fields.email.label")}
+              errors={errors}
+              register={register}
+            />
             {/* PASSWORD */}
-            <div>
-              <label
-                htmlFor="password"
-                className="text-xl font-bold text-white"
-              >
-                {t("common:Login.fields.password.label")}
-              </label>
-              <input
-                id="password"
-                type="password"
-                {...register("password")}
-                className="my-2 h-8 w-full rounded-2xl px-2 text-white outline-3"
-                autoComplete="off"
-              />
-              <span className="text-xs text-red-500">
-                {errors.password?.message}
-              </span>
-            </div>
-
+            <Input
+              label={t("common:Login.fields.password.label")}
+              name="password"
+              errors={errors}
+              register={register}
+            />
             {/* Submit Button */}
             <div className="flex flex-col items-center">
               <button
